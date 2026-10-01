@@ -1,0 +1,64 @@
+services:
+  api-gateway:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["node", "gateway/server.js"]
+    environment:
+      GATEWAY_PORT: 4000
+      JWT_SECRET: development-demo-secret
+      PATIENT_SERVICE_URL: http://patient-service:4101
+      APPOINTMENT_SERVICE_URL: http://appointment-service:4102
+      PRESCRIPTION_SERVICE_URL: http://prescription-service:4103
+      UPDATE_SERVICE_URL: http://update-service:4104
+    ports:
+      - "4000:4000"
+    depends_on: [patient-service, appointment-service, prescription-service, update-service]
+
+  patient-service:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["node", "services/patient-service/server.js"]
+    environment:
+      PATIENT_SERVICE_PORT: 4101
+    ports:
+      - "4101:4101"
+
+  appointment-service:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["node", "services/appointment-service/server.js"]
+    environment:
+      APPOINTMENT_SERVICE_PORT: 4102
+      PATIENT_SERVICE_URL: http://patient-service:4101
+      UPDATE_SERVICE_URL: http://update-service:4104
+    ports:
+      - "4102:4102"
+
+  prescription-service:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["node", "services/prescription-service/server.js"]
+    environment:
+      PRESCRIPTION_SERVICE_PORT: 4103
+      PATIENT_SERVICE_URL: http://patient-service:4101
+    ports:
+      - "4103:4103"
+
+  update-service:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["node", "services/update-service/server.js"]
+    environment:
+      UPDATE_SERVICE_PORT: 4104
+    ports:
+      - "4104:4104"

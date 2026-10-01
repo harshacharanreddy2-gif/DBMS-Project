@@ -1,0 +1,17 @@
+{
+  "name": "healthcare-mobile-app",
+  "version": "1.0.0",
+  "description": "CareConnect - Healthcare Mobile Application with a distributed Node.js backend, API gateway and mobile-first web client",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node scripts/start-all.js",
+    "start": "node scripts/start-all.js",
+    "reset:data": "node scripts/reset-data.js",
+    "test:smoke": "node scripts/smoke-test.js",
+    "check": "node scripts/check.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

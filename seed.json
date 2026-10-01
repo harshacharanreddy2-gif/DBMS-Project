@@ -1,0 +1,45 @@
+{
+  "updates": [
+    {
+      "id": "upd-1",
+      "title": "Free flu vaccination camp",
+      "body": "Walk in on Saturday, 9 AM - 1 PM at the clinic. Bring your ID.",
+      "category": "Vaccination",
+      "publishedAt": "2026-09-27T08:00:00.000Z"
+    },
+    {
+      "id": "upd-2",
+      "title": "Staying healthy this season",
+      "body": "Drink boiled water, wash hands often and see a doctor if fever lasts over 3 days.",
+      "category": "Advisory",
+      "publishedAt": "2026-09-22T08:00:00.000Z"
+    },
+    {
+      "id": "upd-3",
+      "title": "OPD timings updated",
+      "body": "Evening OPD now runs 2 PM - 5 PM on weekdays.",
+      "category": "Notice",
+      "publishedAt": "2026-09-18T08:00:00.000Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "ntf-1",
+      "patientId": "pat-1001",
+      "type": "report",
+      "title": "Lipid profile ready",
+      "message": "Your latest lab report is available under Records.",
+      "read": false,
+      "createdAt": "2026-09-14T12:00:00.000Z"
+    },
+    {
+      "id": "ntf-2",
+      "patientId": "pat-1001",
+      "type": "appointment",
+      "title": "Appointment confirmed",
+      "message": "Dr. Meera Rao on 2026-10-02 at 10:00",
+      "read": true,
+      "createdAt": "2026-09-25T09:00:00.000Z"
+    }
+  ]
+}
